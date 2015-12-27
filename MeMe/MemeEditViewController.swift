@@ -138,9 +138,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         controller.completionWithItemsHandler = { (activityType: String?, completed: Bool, returnedItems: [AnyObject]?, activityError: NSError?) -> Void in
             if completed {
                 
-                save(memedImage)
+                self.save(memedImage)
                 controller.dismissViewControllerAnimated(true, completion: nil)
-                dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
                 print("completed")
             }
         }
