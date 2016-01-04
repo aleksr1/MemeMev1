@@ -27,8 +27,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtConfig("TOP", textField: topTextField)
-        txtConfig("BOTTOM", textField: bottomTextField)
+        txtConfig(topTextField)
+        txtConfig(bottomTextField)
         shareButton.enabled = false
      
     }
@@ -84,7 +84,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return keyboardSize.CGRectValue().height
     }
     
-    func txtConfig(string: String, textField:UITextField){
+    func txtConfig(textField:UITextField){
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
@@ -92,9 +92,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             NSStrokeWidthAttributeName : -5
             
         ]
-        
-        let attributedString = NSAttributedString(string: string, attributes: memeTextAttributes)
-        textField.attributedText = attributedString
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .Center
         textField.delegate = self
@@ -159,11 +156,20 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return memedImage
     }
 
-    func save(memedImage: UIImage) {
+    /*func save(memedImage: UIImage) {
         let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         
         
+    }*/
+    func save(memedImage: UIImage) {
+        //Create the meme
+        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
 }
 
