@@ -21,7 +21,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var pickButton: UIToolbar!
+    @IBOutlet weak var pickButton: UIBarButtonItem!
     
     var meme: Meme!
     
@@ -156,6 +156,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return memedImage
     }
 
+    @IBAction func done(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     /*func save(memedImage: UIImage) {
         let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)

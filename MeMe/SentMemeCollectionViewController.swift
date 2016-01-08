@@ -64,7 +64,7 @@ class SentMemeCollectionViewController: UICollectionViewController {
         performSegueWithIdentifier("collectionSegue", sender: self)
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "collectionSegue" {
             if let indexPaths = collectionView?.indexPathsForSelectedItems(){
                 let indexPath = indexPaths[0]
@@ -72,6 +72,6 @@ class SentMemeCollectionViewController: UICollectionViewController {
                 dc!.image = memes[indexPath.item].memedImage
             }
         }
-    }
+    }*/
 
 }
