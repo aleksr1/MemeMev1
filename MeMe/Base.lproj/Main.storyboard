@@ -47,7 +47,7 @@
                                 <connections>
                                     <outlet property="label" destination="9sE-yX-gtp" id="lmt-Ar-NeE"/>
                                     <outlet property="memeImage" destination="VLE-Co-BcV" id="9dm-wd-Wq4"/>
-                                    <segue destination="dZ7-RG-7PD" kind="push" identifier="tableSegue" id="bsk-vg-jPk"/>
+                                    <segue destination="dZ7-RG-7PD" kind="push" identifier="tableToDetailSegue" id="bsk-vg-jPk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -60,7 +60,7 @@
                     <navigationItem key="navigationItem" id="3l5-uO-LKG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oai-RW-eqb">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="modal" id="YZ9-yW-AIO"/>
+                                <segue destination="BYZ-38-t0r" kind="modal" identifier="tableToEditSegue" id="YZ9-yW-AIO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -104,6 +104,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="memeImage" destination="J1n-Av-wk7" id="RM2-Mv-s76"/>
+                                    <segue destination="dZ7-RG-7PD" kind="push" identifier="collectionToDetailSegue" id="3Jh-rk-XxV"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -116,18 +117,17 @@
                     <navigationItem key="navigationItem" id="T27-J1-TtG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4G7-em-Lp5">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="modal" identifier="collectionSegue" id="oQq-me-8Bt"/>
+                                <segue destination="BYZ-38-t0r" kind="modal" identifier="collectionToEditSegue" id="oQq-me-8Bt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="rfY-Jg-aMa" id="g5V-lE-bZe"/>
-                        <segue destination="dZ7-RG-7PD" kind="push" identifier="" id="lAL-1g-ZNF"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHT-er-4C1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="678"/>
+            <point key="canvasLocation" x="1922" y="682"/>
         </scene>
         <!--Meme Detail View Controller-->
         <scene sceneID="VF1-0d-P8a">
@@ -141,16 +141,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyZ-Eo-epT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyZ-Eo-epT">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RyZ-Eo-epT" firstAttribute="top" secondItem="9IN-vY-ZgF" secondAttribute="bottom" id="NOO-BH-mLX"/>
-                            <constraint firstItem="RyZ-Eo-epT" firstAttribute="leading" secondItem="lRP-UM-1YG" secondAttribute="leading" id="aVy-Lf-NSU"/>
-                            <constraint firstItem="RyZ-Eo-epT" firstAttribute="bottom" secondItem="2EU-2P-ezN" secondAttribute="top" id="cR2-b8-Eme"/>
-                            <constraint firstAttribute="trailing" secondItem="RyZ-Eo-epT" secondAttribute="trailing" id="qcf-6p-xa4"/>
+                            <constraint firstItem="RyZ-Eo-epT" firstAttribute="leading" secondItem="lRP-UM-1YG" secondAttribute="leadingMargin" constant="-20" id="9k1-h7-j7Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RyZ-Eo-epT" secondAttribute="trailing" constant="-20" id="H8H-th-yVe"/>
+                            <constraint firstItem="RyZ-Eo-epT" firstAttribute="top" secondItem="9IN-vY-ZgF" secondAttribute="bottom" id="ZvQ-gJ-WyY"/>
+                            <constraint firstItem="2EU-2P-ezN" firstAttribute="top" secondItem="RyZ-Eo-epT" secondAttribute="bottom" id="ccY-IO-yAz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lJG-r0-K0C"/>
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehB-Ga-eUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2601" y="-229"/>
+            <point key="canvasLocation" x="2695" y="-237"/>
         </scene>
         <!--Meme Edit View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -174,6 +174,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N0r-jh-dlw">
+                                <rect key="frame" x="-4" y="44" width="324" height="480"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xo8-fS-Pq6">
                                 <rect key="frame" x="8" y="64" width="300" height="30"/>
                                 <constraints>
@@ -190,9 +193,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N0r-jh-dlw">
-                                <rect key="frame" x="-4" y="44" width="324" height="480"/>
-                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlo-SZ-mNR">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="44"/>
                                 <items>
@@ -251,7 +251,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="RLR-6z-V88"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bottomTextField" destination="cY2-G1-KZ4" id="0iA-o4-Seh"/>
                         <outlet property="cameraButton" destination="Xhj-es-btd" id="RQQ-2S-Qx7"/>
@@ -325,7 +324,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bsk-vg-jPk"/>
+        <segue reference="3Jh-rk-XxV"/>
         <segue reference="YZ9-yW-AIO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -41,12 +41,26 @@ class SentMemeCollectionViewController: UICollectionViewController {
     func refresh() {
         memes = applicationDelegate.memes
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "collectionToDetailSegue" {
+            if let indexPaths = collectionView?.indexPathsForSelectedItems(){
+                let indexPath = indexPaths[0]
+                if let dc = segue.destinationViewController as? MemeDetailViewController {
+                    dc.image = memes[indexPath.item].memedImage
+
+                }
+            }
+        }
+    }
+
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
-
+    
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return memes.count
@@ -61,17 +75,8 @@ class SentMemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("collectionSegue", sender: self)
+        performSegueWithIdentifier("collectionToDetailSegue", sender: self)
     }
 
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "collectionSegue" {
-            if let indexPaths = collectionView?.indexPathsForSelectedItems(){
-                let indexPath = indexPaths[0]
-                let dc = segue.destinationViewController as? MemeDetailViewController
-                dc!.image = memes[indexPath.item].memedImage
-            }
-        }
-    }*/
-
+    
 }

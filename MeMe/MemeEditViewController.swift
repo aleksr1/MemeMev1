@@ -30,6 +30,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         txtConfig(topTextField)
         txtConfig(bottomTextField)
         shareButton.enabled = false
+        
      
     }
     
@@ -94,6 +95,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         ]
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .Center
+        textField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         textField.delegate = self
 
     }
@@ -159,13 +161,13 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBAction func done(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    /*func save(memedImage: UIImage) {
+    func save(memedImage: UIImage) {
         let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         
         
-    }*/
-    func save(memedImage: UIImage) {
+    }
+    /*func save(memedImage: UIImage) {
         //Create the meme
         let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
         
@@ -173,6 +175,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-    }
+    }*/
 }
 

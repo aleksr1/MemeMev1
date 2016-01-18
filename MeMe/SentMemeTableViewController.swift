@@ -53,11 +53,11 @@ class SentMemeTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("tableSegue", sender: self)
+        performSegueWithIdentifier("tableToDetailSegue", sender: self)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "tableSegue"{
+        if segue.identifier == "tableToDetailSegue"{
             if let dc = segue.destinationViewController as? MemeDetailViewController{
                 if let index = tableView.indexPathForSelectedRow?.row {
                     dc.image = memes[index].memedImage
